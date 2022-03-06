@@ -1,0 +1,12 @@
+body{
+    background-image: url("../images/TenedorCuchillo.jpg");
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-position-y: 225px;
+    background-attachment: fixed;
+}
+
+.ContainerBox{
+    box-sizing: border-box;
+    box-shadow: -5px;
+}

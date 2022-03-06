@@ -1,0 +1,29 @@
+.img_style {
+    height: 15rem;
+    object-fit: contain;
+    padding: 10px;
+}
+.collapsible {
+    background-color: white;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+  }
+  
+  .Active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    padding: 0 6px;
+    max-height: 0;
+    margin: -2px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+  }

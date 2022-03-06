@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipiant</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/recipes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <div class="container-full">
+        <header>
+            <div class="text-center">
+                <a href="index.html" class="btn">
+                    <h1> Recipiant! </h1>
+                </a>
+            </div>
+        </header>
+        <div class="container-full">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">share and rate recipes!</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Página Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="create.html">Sube tu receta!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="log"></a>
+                        </li>
+                        <li class="nav-item" id="logout" hidden>
+                            <a class="nav-link"></a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control ml-sm-2" id="searchtxt" type="search"
+                            placeholder="Search New Recipes!" aria-label="Search">
+                        <a class="btn btn-outline-dark my-2 my-sm-0 ml-2" id="searchbtn">Search</a>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div id="mainview" hidden>
+            <div class="container-fluid" style="margin-bottom: 5rem;">
+                <div class="container">
+                    <div class="row row-cols-2 g-4 mt-2" id="recipe"></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div id="resultview" hidden>
+            <div class="container-fluid" style="margin-bottom: 5rem;">
+                <div class="container">
+                    <div class="row row-cols-2 g-4 mt-2" id="recipeResult">
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="./js/showLogin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
