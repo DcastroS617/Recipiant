@@ -6,12 +6,12 @@ const User = require('../models/User')
 const Register = async (req, res) => {
     const {
         body: {
-            email, password, name
+            email, password, name, image
         }
     } = req
-    const newUser = await User.create({ name, email, password })
+    const newUser = await User.create({ name, email, password, image })
     const token = newUser.CreateJWT()
-    return res.status(StatusCodes.CREATED).json({ msg: 'welcome!', user: { email: newUser.email, name: newUser.name }, token })
+    return res.status(StatusCodes.CREATED).json({ msg: 'welcome!', user: { email: email, name: name, }, token })
 }
 
 const Login = async (req, res) => {

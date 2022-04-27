@@ -5,7 +5,7 @@ const CommentModel = require('../models/Comments')
 
 const CreateComment = async (req, res) => {
     const comment = await CommentModel.create(req.body)
-    return res.status(StatusCodes.CREATED).json({ msg: 'created!', comment })
+    return res.status(StatusCodes.CREATED).json({ comment })
 }
 
 const EditComment = async (req, res) => {
@@ -27,7 +27,7 @@ const EditComment = async (req, res) => {
     if (!Comment) {
         throw new NotFoundError('El comentario no se encuentra en los registros')
     }
-    return res.status(StatusCodes.OK).json({ msg: "hello", Comment })
+    return res.status(StatusCodes.OK).json({ Comment })
 }
 
 const DeleteComment = async (req, res) => {
@@ -46,7 +46,7 @@ const GetRecipeComment = async (req, res) => {
     } = req
     let comments = await CommentModel.find({ recipe: recipe })
     if (!comments) throw new NotFoundError('La receta no contiene comentarios')
-    return res.status(StatusCodes.OK).json({ msg: 'comments from this recipe', comments })
+    return res.status(StatusCodes.OK).json({ comments })
 }
 
 module.exports = {

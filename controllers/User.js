@@ -4,6 +4,12 @@ const bcryptjs = require('bcryptjs')
 const NotFoundError = require('../errors/NotFound')
 const BadRequestError = require('../errors/BadRequest')
 
+const GetUsers = async (req, res) => {
+    const users = await UserModel.find({}).select('-__v -password')
+    if(!users) throw new BadRequestError('No encontramos registros de usuarios')
+    return res.status(200).json(users)
+}
+
 const GetUserById = async (req, res) => {
     const{id} = req.params
     const userFound = await UserModel.findById({_id: id}).select('-password -__v')
@@ -32,7 +38,9 @@ const CambiarPassword = async (req, res) => {
     })
     return res.status(StatusCodes.OK).json({msg:'cambiamos la contraseña :D', user})
 }
+
 module.exports = {
     GetUserById,
-    CambiarPassword
+    CambiarPassword,
+    GetUsers
 }

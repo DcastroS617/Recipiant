@@ -7,7 +7,7 @@ const RecipeSchema = new mongoose.Schema({
         maxlength: 105
     },
     ingredients: {
-        type: Array,
+        type: String,
         required: [true, 'debes introducir los ingredientes de la receta']       
     },
     chef: {

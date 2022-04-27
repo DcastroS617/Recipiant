@@ -15,10 +15,6 @@ const CommentSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Recipe',
         required: [true, 'Error interno, intentelo de nuevo']
-    },
-    likes: {
-        type: Number,
-        default: 0
     }
     //analizar las posibilidades de un sistema de respuesta para los comentarios
     //problablemente puede ser un sistema anidado, u otro modelo; Es porque necesitamos

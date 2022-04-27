@@ -56,7 +56,7 @@ const getUserLikes = async (req, res) => {
     })
     const recipeFound = await RecipeModel.find({ _id: { $in: recipes } })
     console.log(recipes)
-    return res.status(StatusCodes.OK).json({ msg: 'likes personales', favorites: favorites, recipes: recipeFound, likeAmount: likeCount })
+    return res.status(StatusCodes.OK).json({ favorites: favorites, recipes: recipeFound})
 }
 
 const userInteractions = async (req, res) => {
@@ -83,7 +83,13 @@ const userInteractions = async (req, res) => {
     dislikeMap.forEach((item) => {
         if(item !== undefined) dislikeFound[item] = (dislikeFound[item] || 0) + 1
     })
-    res.status(StatusCodes.OK).json({msg: "all user interactions", favorites, likeCount, dislikeCount, likeFound, dislikeFound})
+    let mostLiked = []
+    for(let recipe in likeFound){
+        mostLiked.push({[recipe]: likeFound[recipe]})
+    }
+    console.log(mostLiked)
+    //let mostLiked = Math.max(...likes)
+    res.status(StatusCodes.OK).json({msg: "all user interactions", likeFound /*favorites, likeCount, dislikeCount, likeFound, dislikeFound*/})
 }
 
 const wipeout = async (req, res) => {

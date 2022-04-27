@@ -2,9 +2,9 @@ const { StatusCodes } = require("http-status-codes")
 const BadRequestError = require("../errors/BadRequest")
 const NotFoundError = require('../errors/NotFound')
 const Recipe = require('../models/Recipe')
-const UserModel = require('../models/User')
 
 const CreateRecipe = async (req, res) => {
+    
     const recipe = await Recipe.create(req.body)
     return res.status(StatusCodes.CREATED).json({ recipe })
 }
@@ -12,14 +12,14 @@ const CreateRecipe = async (req, res) => {
 const FiltrateRecipe = async (req, res) => {
     const {
         query: {
-            name, ingredients, chef, numericFilter, sort, fields
+            name, chef, numericFilter, sort, fields
         }
     } = req
     const queryObject = {}
     if (name) { queryObject.name = { $regex: name, $options: 'i' } }
     //when doing search by ObjectId simply use the same config as if it was a static array
     if (chef) { queryObject.chef = chef }
-    if (ingredients) { queryObject.ingredients = { $regex: ingredients, $options: 'i' } }
+    //if (ingredients) { queryObject.ingredients = { $regex: ingredients, $options: 'i' } }
     if (numericFilter) {
         const operatorMap = {
             '>': '$gt',
@@ -60,6 +60,17 @@ const FiltrateRecipe = async (req, res) => {
     if (!recipe) {
         throw new NotFoundError('La receta no se encuentra en el inventario de recetas')
     }
+    //console.log(recipe)
+    
+    console.log(recipe)
+    
+    /*recipe.forEach(item => {
+        item.ingredients = item.ingredients.join(', ')
+    })*/
+    /*let ingredients = recipe.ingredients
+    ingredients = ingredients.join(', ')
+    recipe.ingredients = ingredients*/
+    //recipe.ingredients = recipe.ingredients.join(', ')
     return res.status(StatusCodes.OK).json({ recipe })
 }
 
